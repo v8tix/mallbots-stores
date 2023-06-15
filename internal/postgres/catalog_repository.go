@@ -84,6 +84,7 @@ func (r CatalogRepository) GetCatalog(ctx context.Context, storeID string) (prod
 		err := rows.Close()
 		if err != nil {
 			err = errors.Wrap(err, "closing product rows")
+			fmt.Println(fmt.Errorf("%s", err))
 		}
 	}(rows)
 

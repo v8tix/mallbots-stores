@@ -76,6 +76,7 @@ func (r MallRepository) All(ctx context.Context) (stores []*domain.MallStore, er
 		err := rows.Close()
 		if err != nil {
 			err = errors.Wrap(err, "closing store rows")
+			fmt.Println(fmt.Errorf("%s", err))
 		}
 	}(rows)
 
@@ -108,6 +109,7 @@ func (r MallRepository) AllParticipating(ctx context.Context) (stores []*domain.
 		err := rows.Close()
 		if err != nil {
 			err = errors.Wrap(err, "closing participating store rows")
+			fmt.Println(fmt.Errorf("%s", err))
 		}
 	}(rows)
 
