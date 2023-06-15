@@ -1,0 +1,40 @@
+type: google.api.Service
+config_version: 3
+http:
+  rules:
+    - selector: pb.StoresService.CreateStore
+      post: /api/stores
+      body: "*"
+    - selector: pb.StoresService.EnableParticipation
+      put: /api/stores/{id}/participating
+      body: "*"
+    - selector: pb.StoresService.DisableParticipation
+      delete: /api/stores/{id}/participating
+    - selector: pb.StoresService.RebrandStore
+      put: /api/stores/{id}/rebrand
+      body: "*"
+    - selector: pb.StoresService.GetStores
+      get: /api/stores
+    - selector: pb.StoresService.GetStore
+      get: /api/stores/{id}
+    - selector: pb.StoresService.GetParticipatingStores
+      get: /api/stores/participating
+
+    - selector: pb.StoresService.AddProduct
+      post: /api/stores/{store_id}/products
+      body: "*"
+    - selector: pb.StoresService.RebrandProduct
+      put: /api/stores/products/{id}/rebrand
+      body: "*"
+    - selector: pb.StoresService.IncreaseProductPrice
+      put: /api/stores/products/{id}/increasePrice
+      body: "*"
+    - selector: pb.StoresService.DecreaseProductPrice
+      put: /api/stores/products/{id}/decreasePrice
+      body: "*"
+    - selector: pb.StoresService.RemoveProduct
+      delete: /api/stores/products/{id}
+    - selector: pb.StoresService.GetProduct
+      get: /api/stores/products/{id}
+    - selector: pb.StoresService.GetCatalog
+      get: /api/stores/{store_id}/products

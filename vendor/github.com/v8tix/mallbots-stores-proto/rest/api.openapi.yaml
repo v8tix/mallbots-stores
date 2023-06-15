@@ -1,0 +1,93 @@
+openapiOptions:
+  file:
+    - file: "pb/stores.api.proto"
+      option:
+        info:
+          title: Store Management
+          version: "1.0.0"
+        basePath: /
+  method:
+    - method: pb.StoresService.CreateStore
+      option:
+        operationId: createStore
+        tags:
+          - Store
+        summary: Create a new store
+    - method: pb.StoresService.EnableParticipation
+      option:
+        operationId: enableParticipation
+        tags:
+          - Participation
+        summary: Enable store service participation
+    - method: pb.StoresService.DisableParticipation
+      option:
+        operationId: disableParticipation
+        tags:
+          - Participation
+        summary: Disable store service participation
+    - method: pb.StoresService.RebrandStore
+      option:
+        operationId: rebrandStore
+        tags:
+          - Store
+    - method: pb.StoresService.GetStore
+      option:
+        operationId: getStore
+        tags:
+          - Store
+        summary: Get a store
+    - method: pb.StoresService.GetStores
+      option:
+        operationId: getStores
+        tags:
+          - Store
+        summary: Get a list of stores
+    - method: pb.StoresService.GetParticipatingStores
+      option:
+        operationId: getParticipatingStores
+        tags:
+          - Participation
+        summary: Get a list of participating stores
+
+    - method: pb.StoresService.AddProduct
+      option:
+        operationId: addProduct
+        tags:
+          - Product
+        summary: Add a store product
+    - method: pb.StoresService.RebrandProduct
+      option:
+        operationId: rebrandProduct
+        tags:
+          - Product
+        summary: Change the name and description of a product
+    - method: pb.StoresService.IncreaseProductPrice
+      option:
+        operationId: increaseProductPrice
+        tags:
+          - Product
+        summary: Increase the price of a product
+    - method: pb.StoresService.DecreaseProductPrice
+      option:
+        operationId: decreaseProductPrice
+        tags:
+          - Product
+        summary: Decrease the price of a product
+    - method: pb.StoresService.RemoveProduct
+      option:
+        operationId: removeProduct
+        tags:
+          - Product
+        summary: Remove a store product
+    - method: pb.StoresService.GetProduct
+      option:
+        operationId: getProduct
+        tags:
+          - Product
+        summary: Get a store product
+    - method: pb.StoresService.GetCatalog
+      option:
+        operationId: getStoreProduct
+        tags:
+          - Product
+        summary: Get a list of store products

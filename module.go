@@ -3,7 +3,7 @@ package stores
 import (
 	"context"
 	"database/sql"
-	"github.com/v8tix/mallbots-stores/internal/monolith"
+	"github.com/v8tix/mallbots-stores/internal/ms"
 
 	"github.com/rs/zerolog"
 
@@ -29,7 +29,7 @@ import (
 type Module struct {
 }
 
-func (m *Module) Startup(ctx context.Context, mono monolith.Monolith) (err error) {
+func (m *Module) Startup(ctx context.Context, mono ms.Microservice) (err error) {
 	container := di.New()
 	// setup Driven adapters
 	container.AddSingleton("registry", func(c di.Container) (any, error) {
@@ -140,7 +140,7 @@ func (m *Module) Startup(ctx context.Context, mono monolith.Monolith) (err error
 	if err = grpc.RegisterServerTx(container, mono.RPC()); err != nil {
 		return err
 	}
-	if err = rest.RegisterGateway(ctx, mono.Mux(), mono.Config().Rpc.Address()); err != nil {
+	if err = rest.RegisterGateway(ctx, mono.Mux(), mono.Config().RPC.Address()); err != nil {
 		return err
 	}
 	if err = rest.RegisterSwagger(mono.Mux()); err != nil {
